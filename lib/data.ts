@@ -1,24 +1,26 @@
 // Única fuente de contenido del portfolio.
-// Todo lo que aparece aquí procede de datos facilitados por Ignacio.
-// Los campos opcionales (period, email, photo) se ocultan si están vacíos.
+// Todo lo que aparece aquí procede del CV y de datos facilitados por Ignacio.
+// Los campos opcionales (period, email) se ocultan si están vacíos.
 
 export const site = {
   name: "Ignacio Piles Pla",
   shortName: "Ignacio Piles",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "es_ES",
-  title: "Ignacio Piles Pla — Python, DevOps e IA aplicada",
+  title: "Ignacio Piles Pla — Desarrollador Python · Aprendizaje Automático",
   description:
-    "Portfolio de Ignacio Piles Pla: Técnico Superior en DAM con base en Python, FastAPI y DevOps, y camino hacia el aprendizaje automático. Abierto a posiciones junior en IA.",
+    "Portfolio de Ignacio Piles Pla: Técnico Superior en DAM con experiencia en Python, automatización y CI/CD, cursando la especialización en Aprendizaje Automático. Abierto a posiciones junior en IA.",
 };
 
 export const links = {
-  linkedin: "https://www.linkedin.com/in/ignacio-piles-pla/",
+  // URL tal y como figura en el CV. Si activas la personalizada
+  // (/in/ignacio-piles-pla/), cámbiala aquí.
+  linkedin: "https://www.linkedin.com/in/ignacio-piles-0951a6256",
   github: "https://github.com/nachoGR8",
-  // Rellena para mostrar el botón de email:
+  // Rellena para mostrar el botón de email en Contacto:
   email: "" as string,
-  // Ruta en /public, p. ej. "/ignacio.jpg". Vacío = monograma.
-  photo: "" as string,
+  // Foto en /public (extraída del CV). Vacío = monograma.
+  photo: "/ignacio.jpg" as string,
 };
 
 export const nav = [
@@ -31,30 +33,32 @@ export const nav = [
 ];
 
 export const hero = {
-  eyebrow: "Python · DevOps · IA aplicada",
+  eyebrow: "Python · Automatización · IA aplicada",
   headline: "Automatizo sistemas. Ahora, aprendo a enseñarles a aprender.",
   intro:
-    "Técnico Superior en DAM con base en backend y DevOps, y rumbo al aprendizaje automático. Busco mi primer puesto junior en inteligencia artificial.",
+    "Desarrollador Python con experiencia en automatización y CI/CD, cursando la especialización en Aprendizaje Automático. Busco mi primer puesto en inteligencia artificial para aplicar modelos y automatización a problemas reales de empresa.",
   status: "Abierto a posiciones junior en IA",
 };
 
 export const about = [
-  "Soy Técnico Superior en Desarrollo de Aplicaciones Multiplataforma por Florida Campus Alzira y he sido admitido en el Curso de Especialización en Aprendizaje Automático (Gestión de Datos y Entrenamiento) del IES Simarro, en Xàtiva.",
-  "Mis prácticas me metieron de lleno en DevOps: pipelines en GitLab, scripts de automatización en Python y análisis de logs de VPN para encontrar cuellos de botella. De ahí me viene el gusto por lo que se puede medir, automatizar y repetir sin sorpresas.",
+  "Soy Técnico Superior en Desarrollo de Aplicaciones Multiplataforma por Florida Campus Alzira y ahora curso el Curso de Especialización en Aprendizaje Automático (Gestión de Datos y Entrenamiento) en el IES Simarro, en Xàtiva.",
+  "En mis prácticas en Geinfor automaticé la importación y exportación de bases de datos MongoDB —de horas a minutos— y construí una aplicación que se conecta a la VPN, extrae sus datos y los publica en un dashboard HTML que consume el equipo informático. De ahí me viene el gusto por lo que se puede medir, automatizar y repetir sin sorpresas.",
   "Fuera de las prácticas pruebo modelos de lenguaje que corren en local —llama-cpp-python detrás de FastAPI— y flujos de n8n. También tengo vocación de montar mi propio negocio: me interesa automatizar procesos de pymes de la Ribera Alta.",
 ];
 
 export const aboutFacts = [
   { label: "Base", value: "L'Alcúdia, Valencia" },
   { label: "Stack principal", value: "Python · FastAPI · Docker" },
-  { label: "Ahora", value: "Camino a Aprendizaje Automático" },
+  { label: "Ahora", value: "Cursando Aprendizaje Automático" },
   { label: "Busco", value: "Junior en IA / Python backend" },
+  { label: "Idiomas", value: "Español · Valenciano · Inglés" },
 ];
 
 export type Experience = {
   company: string;
   role: string;
   kind: string;
+  location: string;
   period?: string;
   points: string[];
 };
@@ -62,20 +66,28 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     company: "Geinfor",
-    role: "DevOps",
+    role: "Prácticas de desarrollo y DevOps",
     kind: "Prácticas",
+    location: "Valencia",
+    period: "mar 2026 – may 2026",
     points: [
-      "Trabajo con pipelines de GitLab CI/CD, incluidos el frontend Angular de un monorepo y un microservicio Java desplegando en Google Artifact Registry y GCS.",
-      "Plantilla de seguridad (DevSecOps) para GitLab: detección de secretos, análisis de dependencias y contenedores, generación de SBOM y pre-commit hooks.",
-      "Diagnóstico de rendimiento de VPN (SoftEther) mediante análisis de logs, con paneles de analítica.",
-      "Scripts de automatización en Python.",
+      "Desarrollé en Python una aplicación que automatiza la importación y exportación de bases de datos MongoDB para las instalaciones en equipos de clientes, reduciendo el tiempo de la instalación de horas a minutos respecto al proceso manual.",
+      "Construí una aplicación en Python que se conecta automáticamente al servidor VPN, extrae sus datos y genera un dashboard HTML con usuarios conectados, consumo de red y conexiones, utilizado por el equipo informático.",
+      "Trabajé con pipelines de GitLab CI/CD, incluidos el frontend Angular de un monorepo y un microservicio Java desplegando en Google Artifact Registry y GCS.",
+      "Creé una plantilla de seguridad (DevSecOps) para GitLab: detección de secretos, análisis de dependencias y contenedores, generación de SBOM y pre-commit hooks.",
     ],
   },
   {
     company: "Clásica Urbana",
-    role: "Microinformática",
-    kind: "Prácticas",
-    points: ["Prácticas de microinformática."],
+    role: "Técnico de Microinformática y Redes",
+    kind: "Prácticas de FP",
+    location: "Alzira",
+    period: "mar 2024 – jun 2024",
+    points: [
+      "Resolví incidencias de hardware y software y presté soporte técnico a usuarios.",
+      "Instalé y configuré sistemas operativos Windows y software corporativo.",
+      "Diagnostiqué incidencias en redes LAN y gestioné usuarios y permisos en dominios Windows.",
+    ],
   },
 ];
 
@@ -83,26 +95,34 @@ export type SkillGroup = { title: string; items: string[] };
 
 export const skills: SkillGroup[] = [
   {
-    title: "Backend y lenguajes",
-    items: ["Python", "FastAPI", "APIs REST"],
-  },
-  {
-    title: "DevOps",
-    items: ["Docker", "GitLab CI/CD", "DevSecOps", "SBOM", "Pre-commit hooks"],
+    title: "Lenguajes",
+    items: ["Python", "Java", "SQL", "JavaScript", "Bash", "PowerShell"],
   },
   {
     title: "IA y datos",
     items: [
+      "Aprendizaje automático (en formación)",
       "LLMs en local",
       "llama-cpp-python",
       "GPT4All",
       "Prompt engineering",
-      "Aprendizaje automático (en formación)",
     ],
   },
   {
-    title: "Automatización",
-    items: ["n8n", "Web scraping", "Automatización de procesos", "Scripting"],
+    title: "Backend y datos",
+    items: ["FastAPI", "APIs REST", "MongoDB", "MySQL"],
+  },
+  {
+    title: "DevOps y automatización",
+    items: ["GitLab CI/CD", "Docker", "Linux", "n8n", "DevSecOps", "SoftEther VPN"],
+  },
+  {
+    title: "Herramientas",
+    items: ["Git", "HTML", "VS Code", "IntelliJ IDEA", "Windows Server"],
+  },
+  {
+    title: "Redes y sistemas",
+    items: ["Redes LAN", "Dominios Windows", "Soporte técnico"],
   },
 ];
 
@@ -116,11 +136,18 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "Plantilla DevSecOps para GitLab",
+    name: "Automatización de bases de datos MongoDB",
     context: "Prácticas · Geinfor",
     description:
-      "Stage de seguridad reutilizable para pipelines de GitLab: detección de secretos, análisis de dependencias y contenedores, SBOM y pre-commit hooks.",
-    tags: ["GitLab CI/CD", "DevSecOps", "SBOM"],
+      "Aplicación en Python que automatiza la importación y exportación de bases MongoDB en las instalaciones de clientes: de horas a minutos frente al proceso manual.",
+    tags: ["Python", "MongoDB", "Automatización"],
+  },
+  {
+    name: "Dashboard de monitorización de VPN",
+    context: "Prácticas · Geinfor",
+    description:
+      "Aplicación que se conecta al servidor VPN, extrae sus datos y genera un dashboard HTML con usuarios conectados, consumo de red y conexiones, usado por el equipo informático.",
+    tags: ["Python", "SoftEther VPN", "HTML"],
   },
   {
     name: "Chatbots con LLMs en local",
@@ -129,24 +156,25 @@ export const projects: Project[] = [
       "Pruebas de asistentes conversacionales con modelos que corren en la propia máquina, expuestos mediante un backend FastAPI.",
     tags: ["Python", "FastAPI", "llama-cpp-python", "GPT4All"],
   },
-  {
-    name: "Automatizaciones con n8n",
-    context: "Experimento personal",
-    description:
-      "Flujos de scraping, recordatorios de facturas y monitorización de licitaciones públicas, explorando qué procesos de una pyme merece la pena automatizar.",
-    tags: ["n8n", "Scraping", "Automatización"],
-  },
 ];
 
 export const education = [
   {
     title: "Curso de Especialización en Aprendizaje Automático: Gestión de Datos y Entrenamiento",
     school: "IES Simarro · Xàtiva",
-    status: "Admitido",
+    period: "2026 – actualidad",
+    status: "En curso",
   },
   {
     title: "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)",
     school: "Florida Campus · Alzira",
+    period: "2024 – jun 2026",
+    status: "Titulado",
+  },
+  {
+    title: "Técnico en Sistemas Microinformáticos y Redes",
+    school: "Florida Campus · Alzira",
+    period: "sep 2022 – jul 2024",
     status: "Titulado",
   },
 ];

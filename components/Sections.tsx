@@ -1,4 +1,14 @@
-import { ArrowUpRight, Cpu, GraduationCap, Mail, Network, Terminal, Workflow } from "lucide-react";
+import {
+  ArrowUpRight,
+  Cpu,
+  Database,
+  GraduationCap,
+  Mail,
+  Network,
+  Terminal,
+  Workflow,
+  Wrench,
+} from "lucide-react";
 import { about, aboutFacts, education, experience, links, projects, skills } from "@/lib/data";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 import Reveal from "./Reveal";
@@ -45,7 +55,7 @@ export function Experience() {
                 <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                   <h3 className="text-2xl font-semibold tracking-tight">{e.company}</h3>
                   <p className="font-mono text-xs text-white/50">
-                    {e.kind}
+                    {e.kind} · {e.location}
                     {e.period ? ` · ${e.period}` : ""}
                   </p>
                 </div>
@@ -67,7 +77,7 @@ export function Experience() {
   );
 }
 
-const skillIcons = [Terminal, Network, Cpu, Workflow];
+const skillIcons = [Terminal, Cpu, Database, Workflow, Wrench, Network];
 
 export function Skills() {
   return (
@@ -152,7 +162,7 @@ export function Projects() {
 export function Education() {
   return (
     <Section id="formacion" index="05" title="Formación">
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-5 lg:grid-cols-3">
         {education.map((e, i) => (
           <Reveal key={e.title} delay={i * 90}>
             <div className="flex h-full gap-5 rounded-2xl border border-line bg-card p-6">
@@ -160,7 +170,9 @@ export function Education() {
                 <GraduationCap className="size-5" aria-hidden />
               </span>
               <div>
-                <p className="font-mono text-xs text-accent">{e.status}</p>
+                <p className="font-mono text-xs text-accent">
+                  {e.status} · {e.period}
+                </p>
                 <h3 className="mt-1 font-medium leading-snug tracking-tight">{e.title}</h3>
                 <p className="mt-1 text-sm text-muted">{e.school}</p>
               </div>
