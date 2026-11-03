@@ -1,5 +1,6 @@
 import {
   ArrowUpRight,
+  Check,
   Cpu,
   Database,
   GraduationCap,
@@ -114,10 +115,93 @@ export function Skills() {
 }
 
 export function Projects() {
+  const featured = projects.find((p) => p.featured);
+  const others = projects.filter((p) => !p.featured);
   return (
     <Section id="proyectos" index="04" title="Proyectos seleccionados">
-      <div className="grid gap-5 md:grid-cols-3">
-        {projects.map((p, i) => (
+      {featured && (
+        <Reveal>
+          <article className="overflow-hidden rounded-3xl bg-ink text-paper">
+            <div className="grid gap-10 p-6 sm:p-10 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
+              <div className="flex flex-col">
+                <p className="font-mono text-xs text-white/50">{featured.context}</p>
+                <h3 className="mt-3 text-balance text-2xl font-semibold leading-tight tracking-tight sm:text-4xl">
+                  {featured.name}
+                </h3>
+                <p className="mt-4 leading-relaxed text-white/70">{featured.description}</p>
+                {featured.stats && (
+                  <ul className="mt-8 grid gap-3 sm:grid-cols-3">
+                    {featured.stats.map((s) => (
+                      <li
+                        key={s.value}
+                        className="rounded-xl border border-white/10 bg-white/[0.03] p-4"
+                      >
+                        <p className="text-lg font-semibold tracking-tight text-white">{s.value}</p>
+                        <p className="mt-1 text-xs leading-snug text-white/55">{s.label}</p>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {featured.tags.map((t) => (
+                    <li
+                      key={t}
+                      className="rounded-md bg-white/10 px-2 py-1 font-mono text-[11px] text-white/80"
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+                {featured.href && (
+                  <a
+                    href={featured.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group mt-8 inline-flex w-fit items-center gap-2.5 rounded-full bg-accent px-6 py-3.5 text-sm font-medium text-white transition hover:bg-white hover:text-ink"
+                  >
+                    <GithubIcon className="size-4" />
+                    Ver el código en GitHub
+                    <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </a>
+                )}
+              </div>
+              <div className="space-y-8">
+                {featured.flow && (
+                  <div>
+                    <p className="font-mono text-xs text-white/50">Cómo funciona</p>
+                    <ol className="mt-4 space-y-2">
+                      {featured.flow.map((step, i) => (
+                        <li
+                          key={step}
+                          className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm"
+                        >
+                          <span className="font-mono text-xs text-accent">0{i + 1}</span>
+                          <span className="text-white/85">{step}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                )}
+                {featured.highlights && (
+                  <div>
+                    <p className="font-mono text-xs text-white/50">Qué incluye</p>
+                    <ul className="mt-4 space-y-3 text-sm text-white/75">
+                      {featured.highlights.map((h) => (
+                        <li key={h} className="flex gap-3 leading-relaxed">
+                          <Check aria-hidden className="mt-0.5 size-4 shrink-0 text-accent" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </article>
+        </Reveal>
+      )}
+      <div className="mt-5 grid gap-5 md:grid-cols-2">
+        {others.map((p, i) => (
           <Reveal key={p.name} delay={i * 90}>
             <article className="group flex h-full flex-col rounded-2xl border border-line bg-card p-6 transition hover:-translate-y-0.5 hover:border-ink/30 hover:shadow-[0_12px_30px_-18px_rgb(0_0_0/0.35)]">
               <p className="font-mono text-xs text-muted">{p.context}</p>
