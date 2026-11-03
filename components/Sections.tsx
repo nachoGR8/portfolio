@@ -276,7 +276,7 @@ export function Contact() {
       <div className="max-w-2xl">
         <Reveal>
           <p className="text-balance text-xl leading-relaxed text-white/75 sm:text-2xl">
-            Si buscas a alguien con base en Python y DevOps que está dando el salto a la IA, o
+            Si tu empresa trabaja con IA, datos o desarrollo de software y acepta prácticas de abril a junio en Valencia, o
             quieres colaborar en algo, me encantará escucharte.
           </p>
         </Reveal>

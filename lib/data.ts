@@ -9,7 +9,7 @@ export const site = {
   locale: "es_ES",
   title: "Ignacio Piles Pla — Desarrollador Python · Aprendizaje Automático",
   description:
-    "Portfolio de Ignacio Piles Pla: Técnico Superior en DAM con experiencia en Python, automatización y CI/CD, cursando la especialización en Aprendizaje Automático. Abierto a posiciones junior en IA.",
+    "Portfolio de Ignacio Piles Pla: Técnico Superior en DAM con experiencia en Python, automatización y CI/CD, cursando la especialización en Aprendizaje Automático. Busca empresa en Valencia para sus prácticas en IA y Datos (abril–junio).",
 };
 
 export const links = {
@@ -36,8 +36,8 @@ export const hero = {
   eyebrow: "Python · Automatización · IA aplicada",
   headline: "Automatizo sistemas. Ahora, aprendo a enseñarles a aprender.",
   intro:
-    "Desarrollador Python con experiencia en automatización y CI/CD, cursando la especialización en Aprendizaje Automático. Busco mi primer puesto en inteligencia artificial para aplicar modelos y automatización a problemas reales de empresa.",
-  status: "Abierto a posiciones junior en IA",
+    "Desarrollador Python con experiencia en automatización y CI/CD, cursando la especialización en Aprendizaje Automático. Busco empresa en Valencia para mis prácticas en IA y Datos: quiero aplicar modelos y automatización a problemas reales y, si encajamos, seguir en el equipo.",
+  status: "Busco prácticas en IA y Datos · abril–junio",
 };
 
 export const about = [
@@ -50,7 +50,8 @@ export const aboutFacts = [
   { label: "Base", value: "L'Alcúdia, Valencia" },
   { label: "Stack principal", value: "Python · FastAPI · Docker" },
   { label: "Ahora", value: "Cursando Aprendizaje Automático" },
-  { label: "Busco", value: "Junior en IA / Python backend" },
+  { label: "Busco", value: "Prácticas en IA y Datos" },
+  { label: "Disponible", value: "Abril–junio · presencial o híbrida" },
   { label: "Idiomas", value: "Español · Valenciano · Inglés" },
 ];
 
